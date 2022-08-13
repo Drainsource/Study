@@ -8,7 +8,6 @@ do
     name = Console.ReadLine();
 } while (name == "");
 
-
 do
 {
     Console.Write("How old are you: ");
