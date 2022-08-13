@@ -9,6 +9,6 @@ int ageInTenYears = age + 10;
 
 Console.WriteLine(age);
 Console.WriteLine(ageInTenYears);
-Console.WriteLine(age / 2);
+// Console.WriteLine(age / 2);
 
 
