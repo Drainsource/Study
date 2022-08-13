@@ -1,9 +1,14 @@
-﻿
-Console.Write("What is your name: ");
-string? name = Console.ReadLine();
-
-bool isNumber;
+﻿bool isNumber;
 int age;
+string? name;
+
+do
+{
+    Console.Write("What is your name: ");
+    name = Console.ReadLine();
+} while (name == "");
+
+
 do
 {
     Console.Write("How old are you: ");
@@ -18,4 +23,8 @@ if (name.ToLower() == "bob" || name.ToLower() == "sue")
 if (isNumber && age < 21)
 {
     Console.WriteLine($"Please wait {21 - age} to start this class");
+}
+else
+{
+    Console.WriteLine($"Welcome to class {name}");
 }
