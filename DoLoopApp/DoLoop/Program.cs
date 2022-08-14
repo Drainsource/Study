@@ -1,20 +1,20 @@
 ﻿
-bool isValidAge;
-int age;
-do
-{
-	Console.WriteLine("Whait is your age: ");
-	string? ageText = Console.ReadLine();
-	isValidAge = int.TryParse(ageText, out age);
+//bool isValidAge;
+//int age;
+//do
+//{
+//	Console.WriteLine("Whait is your age: ");
+//	string? ageText = Console.ReadLine();
+//	isValidAge = int.TryParse(ageText, out age);
 
-	if (!isValidAge)
-	{
-		Console.WriteLine("Thats was an ivalid age.");
-	}
+//	if (!isValidAge)
+//	{
+//		Console.WriteLine("Thats was an ivalid age.");
+//	}
 
-} while (!isValidAge);
+//} while (!isValidAge);
 
-Console.WriteLine($"Your age is {age}");
+//Console.WriteLine($"Your age is {age}");
 
 
 
@@ -27,3 +27,9 @@ Console.WriteLine($"Your age is {age}");
 //{
 
 //}
+string? name;
+do
+{
+    Console.Write("What is your name: ");
+     name = Console.ReadLine();
+} while (name != "exit");
