@@ -1,4 +1,5 @@
-﻿using TikTakToeLib.Interfaces;
+﻿using System.Data.Common;
+using TikTakToeLib.Interfaces;
 using TikTakToeLib.Models;
 
 namespace TikTakToeLib
@@ -6,30 +7,28 @@ namespace TikTakToeLib
     public class Board : IBoard
     {
         public Cell[,] Grid { get; private set; }
-        public int Rows { get; set; }
-        public int Columns { get; set; }
+        private int _rows { get; set; } = 3;
+        private int _columns { get; set; } = 3;
+        public int RequireToWin { get; set; }
 
-        private int _numberOfRowsCells;
+        private int _numberOfRowsCells = 3;
 
         public int NumberOfRowsCells
         {
             get { return _numberOfRowsCells; }
-            set { _numberOfRowsCells = 3; }
         }
 
         public Board()
         {
-            Rows = Columns = _numberOfRowsCells;
-            Grid = new Cell[Rows, Columns];
+            Grid = new Cell[_rows, _columns];
             ResetBoard();
-
         }
 
         public void ResetBoard()
         {
-            for (int i = 0; i < Rows; i++)
+            for (int i = 0; i < _rows; i++)
             {
-                for (int j = 0; j < Columns; j++)
+                for (int j = 0; j < _columns; j++)
                 {
                     Grid[i, j] = Cell.Empty;
                 }
@@ -47,7 +46,7 @@ namespace TikTakToeLib
         public bool isWinningConditionMet(Player player)
         {
             for (int i = 0; i < _numberOfRowsCells; i++)
-            {              
+            {
                 if (player.CellType == Grid[i, 0] && Grid[i, 0] == Grid[i, 1] && Grid[i, 1] == Grid[i, 2])
                 {
                     return true;
@@ -65,9 +64,61 @@ namespace TikTakToeLib
             {
                 return true;
             }
-
             return false;
-         
+
+            //int counter = 0;
+            //for (int i = 0; i < Rows; i++)
+            //{ 
+            //    for (int j = 0; j < Columns; j++)
+            //    {  
+            //        if (Grid[i, j] == player.CellType)
+            //        {
+            //            counter++;
+            //            if (counter == RequireToWin)
+            //            {
+            //                return true;
+            //            }
+            //            else
+            //            {
+            //               counter = 0;
+            //            }
+            //        }
+            //    }
+            //}
+            //counter = 0;
+            //for (int i = 0; i < Rows; i++)
+            //{
+            //    for (int j = 0; j < Columns; j++)
+            //    {
+            //        if (Grid[j, i] == player.CellType)
+            //        {
+            //            counter++;
+            //            if (counter == RequireToWin)
+            //            {
+            //                return true;
+            //            }
+            //            else
+            //            {
+            //                counter = 0;
+            //            }
+            //        }
+            //    }
+            //}
+
+            //for (int i = 0; i < NumberOfRowsCells; i++)
+            //{
+            //    if (Grid[i, i] == player.CellType)
+            //    {
+            //        counter++;
+            //        if (counter == RequireToWin)
+            //        {
+            //            return true;
+            //        }
+            //        else
+            //        {
+            //            counter = 0;
+            //        }
+            //    }
 
         }
     }
