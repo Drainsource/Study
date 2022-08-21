@@ -3,16 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TikTakToeLib.Models;
-using TikTakToeLib;
 
-namespace Console
+namespace DemoLibrary
 {
-    internal class UserInteractions
+    public class DataAccess
     {
-        public static void Create()
+        protected internal string GetConnectionString()
         {
-
+            return "Sensitve data";
         }
     }
 }
