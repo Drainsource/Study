@@ -5,16 +5,19 @@ public abstract class Deck
     protected List<PlayingCardModel> _fullDeck = new();
     protected List<PlayingCardModel> _drawPile = new();
     protected List<PlayingCardModel> _discardPile = new();
-    protected void CreateDeck()
+    protected void CreateDeck(int deckSize = 1)
     {
         _fullDeck.Clear();
 
-        for (int suit = 0; suit < Enum.GetNames(typeof(CardSuit)).Length; suit++)
+        for (int i = 0; i < deckSize; i++)
         {
-            for (int val = 0; val < Enum.GetNames(typeof(CardValue)).Length; val++)
+            for (int suit = 0; suit < Enum.GetNames(typeof(CardSuit)).Length; suit++)
             {
-                _fullDeck.Add(new PlayingCardModel { Suit = (CardSuit)suit, Value = (CardValue)val });
-            }
+                for (int val = 0; val < Enum.GetNames(typeof(CardValue)).Length; val++)
+                {
+                    _fullDeck.Add(new PlayingCardModel { Suit = (CardSuit)suit, Value = (CardValue)val });
+                }
+            } 
         }
     }
     public virtual void ShuffleDeck()
