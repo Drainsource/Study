@@ -1,0 +1,37 @@
+﻿@page "/Address"
+@using HomeWorkBlazorServer.Data
+
+
+<h3>Address</h3>
+
+<EditForm Model="address" OnInvalidSubmit="OnValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <label for="streetAddress" class="from-label">@nameof(address.StreetAddress)</label>
+    <InputText id="streetAddress" @bind-Value="address.StreetAddress" class="form-control" />
+
+    <label for="city" class="from-label">@nameof(address.City)</label>
+    <InputText id="city" @bind-Value="address.City" class="form-control" />
+
+    <label for="state" class="from-label">@nameof(address.State)</label>
+    <InputText id="state" @bind-Value="address.State" class="form-control" />
+
+    <label for="zipcode" class="from-label">@nameof(address.ZipCode)</label>
+    <InputText id="zipcode" @bind-Value="address.ZipCode" class="form-control" />
+
+    <button class="btn btn-primary" type="submit">Submit</button>
+
+</EditForm>
+
+
+
+@code {
+
+    private AddressModel address = new();
+
+    private void OnValidSubmit()
+    {
+
+    }
+}

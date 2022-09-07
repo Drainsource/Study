@@ -1,0 +1,24 @@
+﻿@page
+@model HomeWorkRazorPage.Pages.PeopleModel
+@{
+    ViewData["Title"] = "People";
+}
+
+<h1>People</h1>
+
+<form method="post">
+    <div>
+        <label asp-for="Person.FirstName"></label>
+        <input type="text" asp-for="Person.FirstName" placeholder="First Name"/>
+    </div>
+    <div>
+        <label asp-for="Person.LastName"></label>
+        <input type="text" asp-for="Person.LastName" placeholder="Last Name" />
+    </div>
+    <div>
+        <input type="checkbox" asp-for="Person.IsActive" />
+        <label asp-for="Person.IsActive"></label>
+    </div>
+
+    <button type="submit" class="btn btn-danger">Submit</button>
+</form>

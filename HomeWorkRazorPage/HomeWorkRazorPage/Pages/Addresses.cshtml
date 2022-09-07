@@ -1,0 +1,28 @@
+﻿@page
+@model HomeWorkRazorPage.Pages.AddressesModel
+@{
+    ViewData["Title"] = "Addresses";
+}
+
+<h1>Addresses</h1>
+
+<form method="post">
+    <div>
+        <label asp-for="Address.StreetAddress"></label>
+        <input type="text" asp-for="Address.StreetAddress" placeholder="Street Address" />
+    </div>
+    <div>
+        <label asp-for="Address.City"></label>
+        <input type="text" asp-for="Address.City" placeholder="City" />
+    </div>
+        <div>
+        <label asp-for="Address.State"></label>
+        <input type="text" asp-for="Address.State" placeholder="State" />
+    </div>
+    <div>
+        <label asp-for="Address.ZipCode"></label>
+        <input type="text" asp-for="Address.ZipCode" placeholder="Zip Code" />
+    </div>
+
+    <button type="submit" class="btn btn-danger">Submit</button>
+</form>

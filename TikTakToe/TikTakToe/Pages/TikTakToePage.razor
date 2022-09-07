@@ -1,0 +1,86 @@
+﻿@page "/TikTakToe"
+
+@inject IBoard board 
+
+<div>@playerX.Name turn</div>
+
+<div class="board">
+    <div class="square" @onclick="() => ColumnClicked(0, 0)">@((board.Grid[0, 0]) == Cell.Empty ? "" : board.Grid[0, 0])</div>
+    <div class="square" @onclick="() => ColumnClicked(0, 1)">@((board.Grid[0, 1]) == Cell.Empty ? "" : board.Grid[0, 1])</div>
+    <div class="square" @onclick="() => ColumnClicked(0, 2)">@((board.Grid[0, 2]) == Cell.Empty ? "" : board.Grid[0, 2])</div>
+    <div class="square" @onclick="() => ColumnClicked(1, 0)">@((board.Grid[1, 0]) == Cell.Empty ? "" : board.Grid[1, 0])</div>
+    <div class="square" @onclick="() => ColumnClicked(1, 1)">@((board.Grid[1, 1]) == Cell.Empty ? "" : board.Grid[1, 1])</div>
+    <div class="square" @onclick="() => ColumnClicked(1, 2)">@((board.Grid[1, 2]) == Cell.Empty ? "" : board.Grid[1, 2])</div>
+    <div class="square" @onclick="() => ColumnClicked(2, 0)">@((board.Grid[2, 0]) == Cell.Empty ? "" : board.Grid[2, 0])</div>
+    <div class="square" @onclick="() => ColumnClicked(2, 1)">@((board.Grid[2, 1]) == Cell.Empty ? "" : board.Grid[2, 1])</div>
+    <div class="square" @onclick="() => ColumnClicked(2, 2)">@((board.Grid[2, 2]) == Cell.Empty ? "" : board.Grid[2, 2])</div>
+</div>
+
+@if (Win)
+{
+<h2>@playerX.Name win!</h2>
+}
+
+
+@code {
+
+    private Player playerX = new Player("Mate", Cell.X);
+    private Player playerO = new Player("Fanni", Cell.O);
+    private bool Win = false;
+    private void ColumnClicked(int row, int column)
+    {
+        if (board.Add(row, column, playerX))
+        {
+            if (!board.doesGameOver(playerX))
+            {
+                Win = false;
+                (playerX, playerO) = (playerO, playerX);
+            }
+            else
+            {
+                Win = true;
+                board.ResetBoard();
+            }
+        }
+
+    }
+
+
+}
+
+<style scoped>
+.board {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: #0a8efa;
+    padding: 10px;
+    width: 200px;
+    height: 200px;
+    border-radius: 10%;
+}
+</style>
+
+<style scoped>
+    .square {
+        background-color: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        width: 60px;
+        height: 60px;
+        font-size: 30px;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 60px;
+        border-radius: 10%;
+        cursor: pointer;
+    }
+
+        .square:hover {
+            background-color: rgba(106, 202, 9, 0.8);
+        }
+</style>
+
+
+
+
+
+

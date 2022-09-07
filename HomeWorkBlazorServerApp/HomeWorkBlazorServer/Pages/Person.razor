@@ -1,0 +1,38 @@
+﻿@page "/person"
+
+
+@using HomeWorkBlazorServer.Data
+
+
+<h3>Person</h3>
+<EditForm Model="person" OnInvalidSubmit="OnValidSubmit">
+    <DataAnnotationsValidator/>
+    <ValidationSummary/>
+
+    <label for="firstname" class="from-label">@nameof(person.FirstName)</label>
+    <InputText id="firstname" @bind-Value="person.FirstName" class="form-control" />
+
+    <label for="lastname" class="from-label">@nameof(person.LastName)</label>
+    <InputText id="lastname" @bind-Value="person.LastName" class="form-control" />
+
+    <label for="isactive" class="from-label">@nameof(person.IsActive)</label>
+    <InputCheckbox id="isactive" @bind-Value="person.IsActive" />
+
+    <div>
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+</EditForm>
+
+
+
+
+@code {
+
+    private PersonModel person = new();
+
+    private void OnValidSubmit()
+    {
+
+    }
+
+}

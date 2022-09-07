@@ -1,0 +1,34 @@
+﻿@page "/Hi"
+
+
+<h3>Welcome to Hi</h3>
+<EditForm Model="person" OnValidSubmit="ValidSubmission">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <label for="firstname" class="from-label">@nameof(person.FirstName)</label>
+    <InputText id="firstname" @bind-Value="person.FirstName" class="form-control" />
+
+    <label for="lastname" class="from-label">@nameof(person.LastName)</label>
+    <InputText id="lastname" @bind-Value="person.LastName" class="form-control" />
+
+    <button class="btn btn-primary" type="submit">Submit</button>
+</EditForm>
+
+
+<ul>
+    @GreetingText
+</ul>
+
+@code {
+
+
+    private PersonModel person = new();
+
+    private string? GreetingText;
+
+    private void ValidSubmission()
+    {
+        GreetingText = $"Hi {person.FirstName} {person.LastName}";
+    }
+}
