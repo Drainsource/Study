@@ -1,0 +1,34 @@
+{
+  "profiles": {
+    "Docker Compose": {
+      "commandName": "DockerCompose",
+      "commandVersion": "1.0",
+      "serviceActions": {
+        "frontend": "StartDebugging",
+        "redis": "StartWithoutDebugging",
+        "webapi": "StartDebugging"
+      }
+    },
+    "Start Redis": {
+      "commandName": "DockerCompose",
+      "commandVersion": "1.0",
+      "serviceActions": {
+        "frontend": "DoNotStart",
+        "redis": "StartWithoutDebugging",
+        "webapi": "DoNotStart"
+      }
+    },
+    "Start My Services": {
+      "commandName": "DockerCompose",
+      "commandVersion": "1.0",
+      "composeLaunchAction": "LaunchBrowser",
+      "composeLaunchServiceName": "frontend",
+      "composeLaunchUrl": "{Scheme}://localhost:{ServicePort}",
+      "serviceActions": {
+        "frontend": "StartDebugging",
+        "redis": "DoNotStart",
+        "webapi": "StartDebugging"
+      }
+    }
+  }
+}

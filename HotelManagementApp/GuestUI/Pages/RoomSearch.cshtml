@@ -1,0 +1,46 @@
+﻿@page
+@model GuestUI.Pages.RoomSearchModel
+@{
+    ViewData["Title"] = "Room search";
+}
+<h1>Room Search</h1>
+
+<form method="post">
+    <div class=" form-group">
+        <label asp-for="@Model.StartDate"></label>
+        <input asp-for="@Model.StartDate"/>
+        <label asp-for="@Model.EndDate"></label>
+        <input asp-for="@Model.EndDate"/>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+</form>
+
+@if (Model.AvaibleRoomTypes?.Count > 0)
+{
+    <h2>Results</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Room Type</th>
+                <th>Price</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var room in Model.AvaibleRoomTypes)
+            {
+                <tr>
+                    <td>
+                        <strong>@room.Title</strong><br />
+                        @room.Description
+                    </td>
+                    <td>@string.Format("{0:C}", room.Price)</td>
+                    <td><a  asp-page="/BookRoom" asp-route-roomtypeid="@room.Id" 
+                            asp-route-startdate="@Model.StartDate.ToShortDateString()"
+                            asp-route-enddate="@Model.EndDate.ToShortDateString()">Book Now</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+    

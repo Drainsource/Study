@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32825.248
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextFilesUI", "TextFilesUI\TextFilesUI.csproj", "{4685DD30-C363-4F60-9C07-91660DE042C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLibrary", "DataAccessLibrary\DataAccessLibrary.csproj", "{56FE4E18-AAE3-4905-A2B8-A4D7F4139FCB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4685DD30-C363-4F60-9C07-91660DE042C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4685DD30-C363-4F60-9C07-91660DE042C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4685DD30-C363-4F60-9C07-91660DE042C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4685DD30-C363-4F60-9C07-91660DE042C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56FE4E18-AAE3-4905-A2B8-A4D7F4139FCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56FE4E18-AAE3-4905-A2B8-A4D7F4139FCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56FE4E18-AAE3-4905-A2B8-A4D7F4139FCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56FE4E18-AAE3-4905-A2B8-A4D7F4139FCB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1180ACCF-A79E-4867-B457-AF2F92B34AFB}
+	EndGlobalSection
+EndGlobal
