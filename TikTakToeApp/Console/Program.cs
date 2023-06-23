@@ -18,8 +18,8 @@ internal class Program
         Board board = new Board();
         Player player = player1;
 
-        bool isVaible = false;
-        bool isWinning = false;
+        bool isVaible;
+        bool isWinning;
         do
         {
             do
