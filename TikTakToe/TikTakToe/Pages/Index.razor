@@ -1,9 +1,85 @@
 ﻿@page "/"
 
-<PageTitle>Index</PageTitle>
+@inject IBoard board
 
-<h1>Hello, world!</h1>
+<PageTitle>Amoba</PageTitle>
 
-Welcome to your new app.
+<h1>@playerX.Name turn</h1>
+<p>
+    This is a game design and programed by Mate Toth.
+</p>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+<table class="center">
+    @for (int row = 0; row < board.Rows; row++)
+    {
+        <tr>
+            @for (int col = 0; col < board.Columns; col++)
+            {
+                int rowIndex = row;
+                int colIndex = col;
+                <td class="square" @onclick="() => ColumnClicked(rowIndex, colIndex)">
+                    @((board.Grid[row, col]) == Cell.Empty ? "" : board.Grid[row, col].ToString())
+                </td>
+            }
+        </tr>
+    }
+</table>
+<TikTakToe.Component.PopUp Title="@playerX.Name" ShowPopUp="Win" Body="@playerX.Name" />
+
+
+
+@code {
+
+    private Player playerX = new Player("Mate", Cell.X);
+    private Player playerO = new Player("Fanni", Cell.O);
+    private bool Win = false;
+    private void ColumnClicked(int row, int column)
+    {
+        if (board.Add(row, column, playerX))
+        {
+            if (!board.DoesGameOver(playerX))
+            {
+                Win = false;
+                (playerX, playerO) = (playerO, playerX);
+            }
+            else
+            {
+                Win = true;
+                board.ResetBoard();
+            }
+        }
+
+    }
+}
+
+<style>
+    .square {
+        background-color: lightseagreen;
+        border: 0.15rem solid rgba(0, 0, 0, 0.8);
+        width: 6rem;
+        height: 6rem;
+        font-size: 5rem;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 5rem;
+        /*border-radius: 10%;*/
+        cursor: pointer;
+    }
+
+        .square:hover {
+            background-color: coral;
+        }
+
+    h1, p {
+        color: black;
+        text-align: center;
+    }
+
+    .center {
+        color: gold;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+</style>
+

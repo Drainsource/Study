@@ -4,15 +4,14 @@ namespace TikTakToeLib.Interfaces;
 
 public interface IBoard
 {
+
     Cell[,] Grid { get; set; }
-    int Rows { get; set; }
-    int Columns { get; set; }
+    int Rows { get; }
+    int Columns { get; }
     int RequireToWin { get; set; }
-
-    public int NumberOfRowsCells { get; set; }
-
     public void ResetBoard();
     public bool Add(int row, int column, Player player);
-    public bool doesGameOver(Player player);
+    public List<Coordinate> WiningStreak { get; }
+    public bool DoesGameOver(Player player);
 
 }

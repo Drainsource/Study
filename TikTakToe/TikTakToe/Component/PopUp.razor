@@ -1,0 +1,38 @@
+﻿
+@code {
+
+    [Parameter] public bool ShowPopUp { get; set; }
+    [Parameter] public string? Title { get; set; }
+    [Parameter] public string? Body { get; set; }
+
+
+    private void ShowPopup()
+    {
+    }
+
+    private void HidePopup()
+    {
+        ShowPopUp = false;
+    }
+}
+
+
+<div class="modal" tabindex="-1" role="dialog" style="@($"display: {( @ShowPopUp ? "block" : "none")};")">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">@Title win!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" @onclick="HidePopup">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>@Body win this game. Congratulations!</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" @onclick="HidePopup">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
